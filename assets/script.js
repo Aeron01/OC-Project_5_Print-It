@@ -1,3 +1,11 @@
+document.body.onload=function(){
+    nbr=4;
+    pos=0;
+    banner=document.getElementById("banner");
+    left=document.getElementsByClassName("arrow_left");
+    right=document.getElementsByClassName("arrow_right");
+}
+
 const slides = [
 	{
 		"image":"slide1.jpg",
