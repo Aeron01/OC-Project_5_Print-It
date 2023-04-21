@@ -1,10 +1,60 @@
 document.body.onload=function(){
-    nbr=4;
-    pos=0;
-    banner=document.getElementById("banner");
-    left=document.getElementsByClassName("arrow_left");
-    right=document.getElementsByClassName("arrow_right");
+    //let nbr=4;
+    let pos=0;
+    //let i= pos
+
+    banner=document.getElementById("banner")
+    image=banner.querySelector(".banner-img")
+    left=banner.querySelector(".arrow_left")
+    right=banner.querySelector(".arrow_right")
+    dot=banner.querySelector(".dots")
+    checked=banner.querySelector(".dot_selected")
+
+    //span=document.createElement("span" + "src="[image]);
+    //alt=
+    
+    
+
+    function sliders(){
+        for (i=0; i < slides.length; i++) {
+            
+            if (pos > slides.length){
+                pos=0
+            }
+            else if (pos < 0) {
+            pos=slides.length
+            }
+        }
+        console.log(pos)
+    }
+
+    right.onclick=()=> {
+        if (right.onclick) {
+        pos=pos+1
+            sliders()
+            /*for (i=0; i < slides.length; i++) {
+                if(pos > slides.length) {
+                    pos=0
+                }
+            }*/
+        }
+        //console.log(pos)
+    }
+
+    left.onclick=()=> {
+        if (right.onclick) {
+        pos=pos-1
+            sliders()
+            /*if (pos < 0) {
+                pos=slides.length
+            }*/
+        }
+        //console.log(pos)
+    }
+
 }
+
+
 
 const slides = [
 	{
