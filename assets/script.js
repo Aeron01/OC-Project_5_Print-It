@@ -1,7 +1,18 @@
-//let nbr=4;
+//---- Variables
 let pos=0;
-//let i= pos
 
+banner=document.getElementById("banner");
+image=banner.querySelector(".banner-img");
+left=banner.querySelector(".arrow_left");
+right=banner.querySelector(".arrow_right");
+dots=banner.querySelector(".dots");
+checked=banner.querySelector(".dot_selected");
+tag=banner.querySelector("p");
+let span=document.createElement("span");
+span.classList.add("dot");
+
+
+//---- Pictures Array
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
@@ -21,44 +32,39 @@ const slides = [
 	}
 ]
 
-document.body.onload=function(){
-    
+//---- Dots creation
+slides.forEach(element => {
+   banner.querySelector("div").appendChild(span);
+});
 
-    banner=document.getElementById("banner");
-    image=banner.querySelector(".banner-img");
-    left=banner.querySelector(".arrow_left");
-    right=banner.querySelector(".arrow_right");
-    dot=banner.querySelector(".dots");
-    checked=banner.querySelector(".dot_selected");
-    tag=banner.querySelector("p")
-    //span=document.createElement("span" + "src="[image]);
-    //alt=
-    
-    
+//for (i = 0; i < slides.length; i++)
 
-
-    function sliders(){
-        for (i = 0; i < slides.length; i++) {
-            
-            if (pos > slides.length-1 ){
-                pos=0
-            }
-            else if (pos < 0) {
-                pos=slides.length-1
-            }
+//---- Fucntions
+function sliders(){
+    for (i = 0; i < slides.length; i++) {
+        
+        if (pos > slides.length-1 ){
+            pos=0;
         }
-        console.log(pos)
-        console.log(slides[pos].image)
-        console.log(tag)
-        console.log(slides[pos].tagLine)
-
-        image.setAttribute("src", slides[pos].image);
-        tag.innerHTML = slides[pos].tagLine
+        else if (pos < 0) {
+            pos=slides.length-1;
+        }
     }
+    console.log(pos);
+    console.log(slides[pos].image);
+    console.log(tag);
+    console.log(slides[pos].tagLine);
+
+    image.setAttribute("src", slides[pos].image);
+    tag.innerHTML = slides[pos].tagLine;
+}
+
+//--- Listener & pos change
+document.body.onload=function(){
 
     right.onclick=()=> {
         if (right.onclick) {
-        pos=pos+1
+        pos=pos+1;
         
             sliders()
             /*for (i=0; i < slides.length; i++) {
@@ -72,7 +78,7 @@ document.body.onload=function(){
 
     left.onclick=()=> {
         if (right.onclick) {
-        pos=pos-1
+        pos=pos-1;
         
             sliders()
             /*if (pos < 0) {
@@ -85,6 +91,3 @@ document.body.onload=function(){
 }
 
 
-/*for (let createDots of slides.length) {
-    document.createElement()
-}*/
