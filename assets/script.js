@@ -1,15 +1,14 @@
 //---- Variables
 let pos=0;
 
-banner=document.getElementById("banner");
-image=banner.querySelector(".banner-img");
-left=banner.querySelector(".arrow_left");
-right=banner.querySelector(".arrow_right");
-dots=banner.querySelector(".dots");
-checked=banner.querySelector(".dot_selected");
-tag=banner.querySelector("p");
-let span=document.createElement("span");
-span.classList.add("dot");
+const banner=document.getElementById("banner");
+const image=banner.querySelector(".banner-img");
+const left=banner.querySelector(".arrow_left");
+const right=banner.querySelector(".arrow_right");
+const dots=banner.querySelector(".dots");
+const checked=banner.querySelector(".dot_selected");
+const tag=banner.querySelector("p");
+
 
 
 //---- Pictures Array
@@ -33,30 +32,41 @@ const slides = [
 ]
 
 //---- Dots creation
-slides.forEach(element => {
-   banner.querySelector("div").appendChild(span);
+slides.forEach((_, index) => {
+    const span=document.createElement("span");
+    span.onclick=()=>{
+        setSlidesPosition(index)
+    }
+    span.classList.add("dot");
+    dots.appendChild(span);
 });
 
-//for (i = 0; i < slides.length; i++)
 
-//---- Fucntions
-function sliders(){
-    for (i = 0; i < slides.length; i++) {
+
+//---- Functions
+function setSlidesPosition(newPos){
+    
         
-        if (pos > slides.length-1 ){
-            pos=0;
-        }
-        else if (pos < 0) {
-            pos=slides.length-1;
-        }
+    if (newPos > slides.length-1 ){
+        newPos=0;
     }
-    console.log(pos);
-    console.log(slides[pos].image);
-    console.log(tag);
-    console.log(slides[pos].tagLine);
+    else if (newPos < 0) {
+        newPos=slides.length-1;
+    }
+    
+    pos=newPos;
 
     image.setAttribute("src", slides[pos].image);
     tag.innerHTML = slides[pos].tagLine;
+
+    banner.querySelectorAll(".dot")
+    .forEach((span, index)=> {
+        if (index == pos) {
+            span.classList.add("dot_selected");
+        } else {
+            span.classList.remove("dot_selected");
+        }
+    });
 }
 
 //--- Listener & pos change
@@ -64,30 +74,17 @@ document.body.onload=function(){
 
     right.onclick=()=> {
         if (right.onclick) {
-        pos=pos+1;
-        
-            sliders()
-            /*for (i=0; i < slides.length; i++) {
-                if(pos > slides.length) {
-                    pos=0
-                }
-            }*/
+            setSlidesPosition(pos+1)            
         }
-        //console.log(pos)
     }
 
     left.onclick=()=> {
         if (right.onclick) {
-        pos=pos-1;
-        
-            sliders()
-            /*if (pos < 0) {
-                pos=slides.length
-            }*/
+            setSlidesPosition(pos-1)
         }
-        //console.log(pos)
     }
 
+    setSlidesPosition(0);
 }
 
 
