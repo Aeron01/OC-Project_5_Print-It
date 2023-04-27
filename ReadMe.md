@@ -20,7 +20,7 @@ Mettre en place un carrousel dynamique.
 
 ## Tester le projet
 
-Pour tester simplement & rapidement, veuillez visiter la démo en ligne : []()
+Pour tester simplement & rapidement, veuillez visiter la démo en ligne : [OC-Project 5 Print-It](https://aeron01.github.io/OC-Project_5_Print-It/)
 
 Sinon, clonez le projet
 
