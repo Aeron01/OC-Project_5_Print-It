@@ -79,7 +79,7 @@ document.body.onload=function(){
     }
 
     left.onclick=()=> {
-        if (right.onclick) {
+        if (left.onclick) {
             setSlidesPosition(pos-1)
         }
     }
