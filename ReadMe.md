@@ -1,4 +1,4 @@
-# Print-It WebSite v.1
+# Print-It WebSite v.2
 
 Cinquième projet du parcours "Intégrateur web" chez OpenClassroom. L'objectif est de vous faire découvrir le langage JavaScript pas à pas à travers chaque étape détaillée.
 
