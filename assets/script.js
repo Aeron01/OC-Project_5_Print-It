@@ -73,15 +73,11 @@ function setSlidesPosition(newPos){
 document.body.onload=function(){
 
     right.onclick=()=> {
-        if (right.onclick) {
-            setSlidesPosition(pos+1)            
-        }
+	setSlidesPosition(pos+1)
     }
 
     left.onclick=()=> {
-        if (left.onclick) {
-            setSlidesPosition(pos-1)
-        }
+	setSlidesPosition(pos-1)
     }
 
     setSlidesPosition(0);
